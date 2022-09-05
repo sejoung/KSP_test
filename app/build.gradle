@@ -1,0 +1,19 @@
+plugins {
+  id("org.jetbrains.kotlin.jvm")
+  id "com.google.devtools.ksp"
+}
+
+
+dependencies {
+  implementation project(":annotation")
+  ksp project(":processor")
+}
+
+
+sourceSets {
+  main {
+    java {
+      srcDir "${buildDir.absolutePath}/generated/ksp/"
+    }
+  }
+}
